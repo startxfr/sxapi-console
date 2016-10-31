@@ -24,11 +24,13 @@ Options:
 
 Commands:
   project            project informations
+  services           list available sample service
   setup              setup service
-  build              build service
   start              start service
   log                log service
   stop               stop service
+  restart            restart service
+  record             record change into your project [major,minor or release]
 EOF
 exit
 }
@@ -44,6 +46,8 @@ function displayProject {
     fi
     REMOTE_PROJECT_REPO=$(git config --get remote.origin.url)
     echo " - project linked to" $REMOTE_PROJECT_REPO
+    echo " - list of version for this project"
+    git tag
     exit;
 }
 
@@ -78,8 +82,11 @@ function displaySetup {
     exit; 
 }
 
-function displayBuild {
-    docker-compose build 
+function displayService {
+    cd $CLI_PATH_SAMPLE
+    echo " availables services for $SAMPLE_PROJECT $SAMPLE_REPO_VERSION"
+    find .  -type d -maxdepth 2 -mindepth 2
+    cd -
 }
 
 function displayStart {
@@ -93,6 +100,67 @@ function displayLogs {
 function displayStop {
     docker-compose kill
     docker-compose rm -f
+}
+
+function displayRestart {
+    displayStop
+    displayStart
+}
+
+function displayRecord {
+    arr=(`echo ${params}`);
+    PARAM_MAJOR="${arr[1]}"
+    if [[ "$PARAM_MAJOR" = "maj" || "$PARAM_MAJOR" = "major" ]]; then
+        ISMAJOR='yes'
+    else
+        ISMAJOR='no'
+    fi
+    if [[ "$PARAM_MAJOR" = "min" || "$PARAM_MAJOR" = "minor" ]]; then
+        ISMINOR='yes'
+    else
+        ISMINOR='no'
+    fi
+    SERVICE_VERSION=`git tag | sort -V | tail -1`
+    SERVICE_VERSION_FIRST=${SERVICE_VERSION:0:1}
+    if [[ $SERVICE_VERSION == "" ]]; then
+        SERVICE_VERSION="0.0.0"
+        echo " - creating first release"
+    else
+        if [[ $SERVICE_VERSION_FIRST == 'v' ]]; then
+            SERVICE_VERSION=${SERVICE_VERSION:1}
+        fi
+    fi
+    IFSO=$IFS
+    IFS='.'
+    eval 'a=($SERVICE_VERSION)'
+    IFS=$IFSO
+    SERVICE_V_MAJ=${a[0]}
+    SERVICE_V_MIN=${a[1]}
+    SERVICE_V_REL=${a[2]}
+    if [ $ISMAJOR == 'yes' ]; then
+        SERVICE_V_MAJ=$(($SERVICE_V_MAJ+1))
+        SERVICE_V_MIN="0"
+        SERVICE_V_REL="0"
+    else if [ $ISMINOR == 'yes' ]; then
+        SERVICE_V_MIN=$(($SERVICE_V_MIN+1))
+        SERVICE_V_REL="0"
+    else
+        SERVICE_V_REL=$(($SERVICE_V_REL+1))
+        fi
+    fi
+    NEW_VERSION="$SERVICE_V_MAJ.$SERVICE_V_MIN.$SERVICE_V_REL"
+    echo " - curent version : " $SERVICE_VERSION
+    echo " -   next version : " $NEW_VERSION
+    echo "   type Ctrl+C if you want to abort recording"
+    echo -n "   record description : "
+    read message
+    if [ ! "$message" == '' ]; then
+        git add .
+        git add ./*
+        eval git commit -m \"$message\"
+        eval git tag -a v$NEW_VERSION -m \"release v$NEW_VERSION\"
+        git push origin v$NEW_VERSION
+    fi
 }
 
 function checkEnviromentConfig {
@@ -159,8 +227,8 @@ case "$key" in
     -s|setup)
     displaySetup
     ;;
-    build)
-    displayBuild
+    services)
+    displayService
     ;;
     start)
     displayStart
@@ -170,6 +238,12 @@ case "$key" in
     ;;
     stop)
     displayStop
+    ;;
+    record)
+    displayRecord
+    ;;
+    restart)
+    displayRestart
     ;;
     *)
     displayUsage
