@@ -24,8 +24,8 @@ Options:
 
 Commands:
   project            project informations
+  services           list available sample service
   setup              setup service
-  build              build service
   start              start service
   log                log service
   stop               stop service
@@ -78,8 +78,11 @@ function displaySetup {
     exit; 
 }
 
-function displayBuild {
-    docker-compose build 
+function displayService {
+    cd $CLI_PATH_SAMPLE
+    echo " availables services for $SAMPLE_PROJECT $SAMPLE_REPO_VERSION"
+    find .  -type d -maxdepth 2 -mindepth 2
+    cd -
 }
 
 function displayStart {
@@ -159,8 +162,8 @@ case "$key" in
     -s|setup)
     displaySetup
     ;;
-    build)
-    displayBuild
+    services)
+    displayService
     ;;
     start)
     displayStart
