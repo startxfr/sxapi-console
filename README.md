@@ -9,9 +9,9 @@ SXAPI Console
 Getting Started
 ---------------
 
-[1. Installation](https://github.com/startxfr/sxapi-console/blob/dev/docs/1.Install.md)
-[1. Using CLI (developper)](https://github.com/startxfr/sxapi-console/blob/dev/docs/2.CLI.md)
-[1. Using CWS (admin)](https://github.com/startxfr/sxapi-console/blob/dev/docs/3.CWS.md)
+1. [Installation](https://github.com/startxfr/sxapi-console/blob/dev/docs/1.Install.md)
+2. [Using CLI (developper)](https://github.com/startxfr/sxapi-console/blob/dev/docs/2.CLI.md)
+3. [Using CWS (admin)](https://github.com/startxfr/sxapi-console/blob/dev/docs/3.CWS.md)
 
 
 Troubleshooting
