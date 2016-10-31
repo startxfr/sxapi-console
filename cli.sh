@@ -1,13 +1,13 @@
 #!/bin/bash
 CWD=$(pwd)
 
-CLI_VERSION="v0.0.5"
+CLI_VERSION="v0.0.6"
 CLI_PATH=~/.sxapi-cli
 CLI_PATH_SAMPLE=$CLI_PATH/sample/samples
 
 SAMPLE_PROJECT="sxapi-sample"
 SAMPLE_REPO_PROJECT="startxfr/$SAMPLE_PROJECT"
-SAMPLE_REPO_VERS="0.0.5"
+SAMPLE_REPO_VERS="0.0.6"
 SAMPLE_REPO_VERSION="v$SAMPLE_REPO_VERS"
 
 #GITHUB_API=https://api.github.com/repos/$SAMPLE_REPO_PROJECT/tags
