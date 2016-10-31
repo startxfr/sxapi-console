@@ -7,7 +7,8 @@ CLI_PATH_SAMPLE=$CLI_PATH/sample/samples
 
 SAMPLE_PROJECT="sxapi-sample"
 SAMPLE_REPO_PROJECT="startxfr/$SAMPLE_PROJECT"
-SAMPLE_REPO_VERSION="master"
+SAMPLE_REPO_VERS="master"
+SAMPLE_REPO_VERSION=$SAMPLE_REPO_VERS
 
 #GITHUB_API=https://api.github.com/repos/$SAMPLE_REPO_PROJECT/tags
 
@@ -116,9 +117,9 @@ function installSample {
         curl --silent -L "$URL" > $DEST_DIR/$SAMPLE_REPO_VERSION.zip
         cd $DEST_DIR/
         unzip $SAMPLE_REPO_VERSION.zip &> /dev/null
-        mv $SAMPLE_PROJECT-$SAMPLE_REPO_VERSION/* .
+        mv $SAMPLE_PROJECT-$SAMPLE_REPO_VERS/* .
         rm -rf $SAMPLE_REPO_VERSION.zip
-        rm -rf $SAMPLE_PROJECT-$SAMPLE_REPO_VERSION
+        rm -rf $SAMPLE_PROJECT-$SAMPLE_REPO_VERS
         echo "DONE"
     else
         echo "ERROR"
