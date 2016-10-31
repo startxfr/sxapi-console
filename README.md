@@ -1,9 +1,9 @@
 SXAPI Console
 =============
 
-[![Travis](https://travis-ci.org//startxfr/sxapi-console.svg?branch=master)](https://travis-ci.org/startxfr/sxapi-console)
+[![Travis](https://travis-ci.org//startxfr/sxapi-console.svg?tag=v0.0.5)](https://travis-ci.org/startxfr/sxapi-console)
 
-***SXAPI*** is a microservice framework optimized for building simple and extensible API efficiently. 
+***SXAPI*** is a microservice framework optimized for building simple and extensible API efficiently. SXAPI Console provide graphical or command line to help developper start and manage their sxapi microservices.
 
 
 Getting Started
@@ -26,7 +26,7 @@ The command line is available right after an installation using [sxapi-installer
 If you don't want to use sxapi-installer, you can manually install sxapi-cli by running the following commands
 
 ```
-curl -L https://raw.githubusercontent.com/startxfr/sxapi-console/v0.0.3/cli.sh > /usr/local/bin/sxapi-cli
+curl --silent -L https://raw.githubusercontent.com/startxfr/sxapi-console/v0.0.5/cli.sh > /usr/local/bin/sxapi-cli
 chmod +x /usr/local/bin/sxapi-cli
 ```
 
