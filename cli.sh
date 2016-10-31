@@ -24,6 +24,7 @@ Options:
 
 Commands:
   project            project informations
+  services           list available sample service
   setup              setup service
   build              build service
   start              start service
