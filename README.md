@@ -1,7 +1,7 @@
 SXAPI Console
 =============
 
-[![Travis](https://travis-ci.org//startxfr/sxapi-console.svg?tag=v0.0.6)](https://travis-ci.org/startxfr/sxapi-console)
+[![Travis](https://travis-ci.org//startxfr/sxapi-console.svg?branch=v0.0.6)](https://travis-ci.org/startxfr/sxapi-console)
 
 ***SXAPI*** is a microservice framework optimized for building simple and extensible API efficiently. SXAPI Console provide graphical or command line to help developper start and manage their sxapi microservices.
 
@@ -9,9 +9,9 @@ SXAPI Console
 Getting Started
 ---------------
 
-[1. Installation](https://github.com/startxfr/sxapi-console/blob/v0.0.6/docs/1.Install.md)
-[1. Using CLI (developper)](https://github.com/startxfr/sxapi-console/blob/v0.0.6/docs/2.CLI.md)
-[1. Using CWS (admin)](https://github.com/startxfr/sxapi-console/blob/v0.0.6/docs/3.CWS.md)
+1. [Installation](https://github.com/startxfr/sxapi-console/blob/v0.0.6/docs/1.Install.md)
+2. [Using CLI (developper)](https://github.com/startxfr/sxapi-console/blob/v0.0.6/docs/2.CLI.md)
+3. [Using CWS (admin)](https://github.com/startxfr/sxapi-console/blob/v0.0.6/docs/3.CWS.md)
 
 
 Troubleshooting
