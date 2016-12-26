@@ -85,7 +85,7 @@ function displaySetup {
 function displayService {
     cd $CLI_PATH_SAMPLE
     echo " availables services for $SAMPLE_PROJECT $SAMPLE_REPO_VERSION"
-    find .  -type d -maxdepth 2 -mindepth 2
+    find . -maxdepth 2 -mindepth 2 -type d
     cd -
 }
 
@@ -197,20 +197,23 @@ function installSample {
 }
 
 function displayVersion {
-    LONG="0"
+    LONG="1"
     for i in $params
     do
         case $i in
-            -l|--long)
-            LONG="1"
+            -s|--short)
+            LONG="0"
             ;;
         esac
     done
     
     if  [ "$LONG" -eq "1" ]; then
-    echo "sxapi-cli : v$CLI_VERSION"
+        echo "sxapi-cli : v$CLI_VERSION"
+        echo "sxapi-sample : v$SAMPLE_REPO_VERSION"
+        echo "docker : v$(docker version --format='{{.Server.Version}}' 2>/dev/null | head -n 1)"
+        echo "$(docker-compose version)"
     else
-    echo $CLI_VERSION
+        echo $CLI_VERSION
     fi
 }
 
