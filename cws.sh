@@ -1,7 +1,7 @@
 #!/bin/bash
 CWD=$(pwd)
 
-CWS_VERSION="master"
+CWS_VERSION="v0.0.8"
 CWS_PATH=~/.sxapi-cws
 
 function displayUsage {
