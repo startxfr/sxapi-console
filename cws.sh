@@ -2,7 +2,7 @@
 CWD=$(pwd)
 
 CWS_VERSION="dev"
-CWS_PATH=~/.sxapi-cws
+CWS_PATH=/opt/sxapi-console/cws
 
 function displayUsage {
     cat <<EOF
@@ -22,14 +22,7 @@ function checkEnviromentConfig {
     if [ ! -d $CWS_PATH ]; then
         echo " - $CWS_PATH : NOT FOUND"
         echo -n "   Creating $CWS_PATH environement "
-        mkdir -p $CWS_PATH
-        echo "DONE"
-    fi
-    if [ ! -d $CWS_PATH_SAMPLE ]; then
-        echo " - $CWS_PATH_SAMPLE : NOT FOUND"
-        echo -n "   Installing $CWS_PATH_SAMPLE "
-        mkdir -p $CWS_PATH_SAMPLE
-        installSample $CWS_PATH_SAMPLE
+        exit;
     fi
 }
 
