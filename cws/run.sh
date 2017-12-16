@@ -1,3 +1,3 @@
 #!/bin/bash
 cd /usr/src/app
-npm test && npm start
+npm test && npm $1

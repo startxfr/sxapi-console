@@ -1,18 +1,9 @@
 app:
-  image: node:8
+  build: .
   container_name: "sxapi-console-webui-master"
   mem_limit: 1g
   memswap_limit: 2g
-  privileged: true
   ports:
     - "8081:8081"
-  environment:
-  - NODE_ENV=development
-  - APP_PATH=/usr/src/app
-  - DATA_PATH=/data
-  - CONF_PATH=/conf
   volumes:
-  - "./:/usr/src/app:Z"
-  - "./sxapi.json:/conf/sxapi.json:Z"
-  working_dir: /usr/src/app
-  entrypoint: /usr/src/app/run.sh
+  - "./sxapi.json:/conf/sxapi.json:ro"
