@@ -1,0 +1,29 @@
+{
+    "name": "sxapi-console-webui",
+    "description": "Web management console for managing sxapi-core API",
+    "version": "0.0.1",
+    "debug": true,
+    "log": {
+        "filters": {
+            "level": "0,1,2",
+            "type": "debug,info,error,warn"
+        }
+    },
+    "server": {
+        "type": "express",
+        "port": "8081",
+        "static": true,
+        "static_path": "/",
+        "static_dir": "static",
+        "static_path2": "/npm",
+        "static_dir2": "node_modules",
+        "endpoints": [
+            {
+                "path": "/ping",
+                "desc": "Ping the application. Return a sample text message",
+                "code": "200",
+                "body": "pong"
+            }
+        ]
+    }
+}
