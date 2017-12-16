@@ -1,10 +1,10 @@
-[![sxapi](https://raw.githubusercontent.com/startxfr/sxapi-core/v0.0.8/docs/assets/logo.svg?sanitize=true)](https://github.com/startxfr/sxapi-core)
+[![sxapi](https://raw.githubusercontent.com/startxfr/sxapi-core/v0.0.9/docs/assets/logo.svg?sanitize=true)](https://github.com/startxfr/sxapi-core)
 
-# sxapi console [![Travis](https://travis-ci.org//startxfr/sxapi-console.svg?branch=v0.0.8)](https://travis-ci.org/startxfr/sxapi-console)
+# sxapi console [![Travis](https://travis-ci.org//startxfr/sxapi-console.svg?branch=v0.0.9)](https://travis-ci.org/startxfr/sxapi-console)
 
 This repository store the management tools for using sxapi microservice project
 
-[![Build Status](https://travis-ci.org/startxfr/sxapi-sample.svg?branch=v0.0.8)](https://travis-ci.org/startxfr/sxapi-sample)
+[![Build Status](https://travis-ci.org/startxfr/sxapi-sample.svg?branch=v0.0.9)](https://travis-ci.org/startxfr/sxapi-sample)
 [![docker build](https://img.shields.io/docker/build/startx/sxapi.svg)](https://hub.docker.com/r/startx/sxapi/) 
 [![npm version](https://badge.fury.io/js/sxapi-core.svg)](https://www.npmjs.com/package/sxapi-core) 
 [![npm dependencies](https://david-dm.org/startxfr/sxapi-core.svg)](https://www.npmjs.com/package/sxapi-core) 
@@ -22,9 +22,9 @@ see [sxapi-core project](https://github.com/startxfr/sxapi-core) for more inform
 
 # Getting Started
 
-1. [Installation](https://github.com/startxfr/sxapi-console/blob/v0.0.8/docs/1.Install.md)
-2. [Using CLI (developper)](https://github.com/startxfr/sxapi-console/blob/v0.0.8/docs/2.CLI.md)
-3. [Using CWS (admin)](https://github.com/startxfr/sxapi-console/blob/v0.0.8/docs/3.CWS.md)
+1. [Installation](https://github.com/startxfr/sxapi-console/blob/v0.0.9/docs/1.Install.md)
+2. [Using CLI (developper)](https://github.com/startxfr/sxapi-console/blob/v0.0.9/docs/2.CLI.md)
+3. [Using CWS (admin)](https://github.com/startxfr/sxapi-console/blob/v0.0.9/docs/3.CWS.md)
 
 # Troubleshooting
 
@@ -39,7 +39,7 @@ If you run into difficulties installing or running sxapi, you can [create an iss
 
 # Contributing
 
-Read the [contributing guide](https://github.com/startxfr/sxapi-core/tree/v0.0.8/docs/guides/5.Contribute.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Read the [contributing guide](https://github.com/startxfr/sxapi-core/tree/v0.0.9/docs/guides/5.Contribute.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
 # Authors
 
@@ -47,4 +47,4 @@ This project is mainly developped by the [startx](https://www.startx.fr) dev tea
 
 # License
 
-This project is licensed under the GPL Version 3 - see the [LICENSE.md](https://github.com/startxfr/sxapi-core/tree/v0.0.8/docs/LICENSE.md) file for details
+This project is licensed under the GPL Version 3 - see the [LICENSE.md](https://github.com/startxfr/sxapi-core/tree/v0.0.9/docs/LICENSE.md) file for details

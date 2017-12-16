@@ -1,6 +1,6 @@
 {
   "name": "sxapi-console-webui",
-  "version": "0.0.1",
+  "version": "0.0.9",
   "description": "sxapi-console-webui is a web management console for managing sxapi-core API",
   "author": "STARTX <dev+sxapi_console@startx.fr>",
   "license": "GNU GPLv3",
