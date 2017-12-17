@@ -15,8 +15,7 @@ COPY ./sxapi.json $CONF_PATH/sxapi.json
 COPY run.sh /bin/sxapi
 
 RUN  cd $APP_PATH \
- &&  ls /usr/bin/gi* \
- &&  touch /usr/bin/git \
+ &&  mkdir /usr/bin && touch /usr/bin/git \
  &&  ls /usr/bin/gi* \
  &&  npm install \
  &&  npm cache verify \
