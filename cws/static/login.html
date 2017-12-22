@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html class="login-pf">
+    <head>
+        <title>SXAPI Console - Authentification</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <!-- PatternFly Styles -->
+        <!-- Note: No other CSS files are needed regardless of what other JS packages located in patternfly/components that you decide to pull in -->
+        <link rel="stylesheet" href="npm/patternfly/dist/css/patternfly.min.css">
+        <link rel="stylesheet" href="npm/patternfly/dist/css/patternfly-additions.min.css">
+    </head>
+    <body>
+        <span id="badge">
+            <a href="https://github.com/startxfr/sxapi-core/tree/dev"><img src="img/logo-alt.svg" alt=""/></a>
+        </span>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div id="brand">
+                        <a href="https://github.com/startxfr/sxapi-console/tree/dev"><img src="img/brand-alt.svg" alt="SXAPI Console" /></a>
+                    </div>
+                </div><!--/.col-*-->
+                <div class="col-sm-7 col-md-6 col-lg-5 login">
+                    <form class="form-horizontal" role="form">
+                        <div class="form-group">
+                            <label for="inputUsername" class="col-sm-2 col-md-2 control-label">Username</label>
+                            <div class="col-sm-10 col-md-10">
+                                <input type="text" class="form-control" id="inputUsername" placeholder="" tabindex="1">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="inputPassword" class="col-sm-2 col-md-2 control-label">Password</label>
+                            <div class="col-sm-10 col-md-10">
+                                <input type="password" class="form-control" id="inputPassword" placeholder="" tabindex="2">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-8 col-sm-offset-2 col-sm-6 col-md-offset-2 col-md-6">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" tabindex="3"> Remember username
+                                    </label>
+                                </div>
+                                <span class="help-block"> Forgot <a href="index.html" tabindex="5">username</a> or <a href="index.html" tabindex="6">password</a>?</span>
+                            </div>
+                            <div class="col-xs-4 col-sm-4 col-md-4 submit">
+                                <button type="submit" class="btn btn-primary btn-lg" tabindex="4">Log In</button>
+                            </div>
+                        </div>
+                    </form>
+                </div><!--/.col-*-->
+                <div class="col-sm-5 col-md-6 col-lg-7 details">
+                    <p><strong>Welcome to your SXAPI Console</strong><br>
+                    You can connect to every API service using the <a href="https://github.com/startxfr/sxapi-core/tree/dev">sxapi-core</a> API engine.
+                    Default server is localhost, on port 80 and with a service info endpoint pointing to /info. Feel free to change these setting and use this console to manage multiple API.
+                    </p>
+                </div><!--/.col-*-->
+            </div><!--/.row-->
+        </div>
+    </body>
+</html>
