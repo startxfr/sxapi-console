@@ -1,0 +1,221 @@
+<!doctype html>
+<html ng-app="myApp">
+    <head>
+        <title>SXAPI Console - Management</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <!-- Place before any patternfly css -->
+        <link rel="stylesheet" href="npm/angular-patternfly/node_modules/datatables.net-dt/css/jquery.dataTables.css" />
+        <!-- PatternFly Styles -->
+        <link rel="stylesheet" href="npm/angular-patternfly/node_modules/patternfly/dist/css/patternfly.min.css">
+        <link rel="stylesheet" href="npm/angular-patternfly/node_modules/patternfly/dist/css/patternfly-additions.min.css">
+        <link rel="stylesheet" href="npm/angular-patternfly/dist/styles/angular-patternfly.min.css" />
+        <script src="npm/angular-patternfly/node_modules/patternfly/dist/js/patternfly-settings.min.js"></script>
+        <!-- patternfly.canvas grid tunning -->
+        <style>
+            .canvas {
+                background-image: url('img/canvas-dot-grid.png');
+                background-repeat: repeat;
+            }
+        </style>
+        <!-- jQuery -->
+        <script src="npm/angular-patternfly/node_modules/jquery/dist/jquery.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="npm/angular-patternfly/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+        <!-- Bootstrap Select -->
+        <script src="npm/angular-patternfly/node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+        <!-- jquery before angular.js -->
+        <script src="npm/components-jqueryui/jquery-ui.min.js"></script>
+        <!-- Note: jquery.dataTables.js must occur in the html source before patternfly*.js.-->
+        <script src="npm/angular-patternfly/node_modules/patternfly/node_modules/datatables.net/js/jquery.dataTables.js"></script>
+        <script src="npm/angular-patternfly/node_modules/patternfly/node_modules/datatables.net-select/js/dataTables.select.js"></script>
+        <!-- Moment - required by Bootstrap Date Time Picker -->
+        <script src="npm/angular-patternfly/node_modules/patternfly/node_modules/moment/min/moment.min.js"></script>
+        <!-- C3, D3 - Charting Libraries. -->
+        <script src="npm/angular-patternfly/node_modules/c3/c3.min.js"></script>
+        <script src="npm/angular-patternfly/node_modules/d3/d3.min.js"></script>
+        <!-- ANGULAR -->
+        <script src="npm/angular/angular.js"></script>
+        <!-- angular-dragdrop and angular-svg-base-fix after angular.js -->
+        <script src="npm/angular-dragdrop/src/angular-dragdrop.js"></script>
+        <script src="npm/angular-svg-base-fix/src/svgBaseFix.js"></script>
+        <!-- Datatables, jQuery Grid Component -->
+        <script src="npm/angularjs-datatables/dist/angular-datatables.min.js"></script>
+        <script src="npm/angularjs-datatables/dist/plugins/select/angular-datatables.select.min.js"></script>
+        <!-- Google Code Prettify - Syntax highlighting of code snippets -->
+        <script src="npm/angular-patternfly/node_modules/patternfly/node_modules/google-code-prettify/bin/prettify.min.js"></script>
+        <!-- PatternFly Custom Componets -  Sidebar, Popovers and Datatables Customizations -->
+        <script src="npm/angular-patternfly/node_modules/patternfly/dist/js/patternfly.min.js"></script>
+        <!-- Bootstrap Combobox -->
+        <script src="npm/angular-patternfly/node_modules/patternfly/node_modules/patternfly-bootstrap-combobox/js/bootstrap-combobox.js"></script>
+        <!-- Bootstrap Date Picker -->
+        <script src="npm/angular-patternfly/node_modules/patternfly/node_modules/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+        <!-- Bootstrap Date Time Picker - requires Moment -->
+        <script src="npm/angular-patternfly/node_modules/patternfly/node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+        <!-- Bootstrap Switch -->
+        <script src="npm/angular-patternfly/node_modules/patternfly/node_modules/bootstrap-switch/dist/js/bootstrap-switch.min.js"></script>
+        <!-- Bootstrap Touchspin -->
+        <script src="npm/angular-patternfly/node_modules/patternfly/node_modules/bootstrap-touchspin/dist/jquery.bootstrap-touchspin.min.js"></script>
+        <!-- Bootstrap Tree View -->
+        <script src="npm/angular-patternfly/node_modules/patternfly/node_modules/patternfly-bootstrap-treeview/dist/bootstrap-treeview.min.js"></script>
+        <!-- MatchHeight - Used to make sure dashboard cards are the same height -->
+        <script src="npm/angular-patternfly/node_modules/patternfly/node_modules/jquery-match-height/dist/jquery.matchHeight-min.js"></script>
+        <!-- Angular Application? You May Want to Consider Pulling Angular-PatternFly And Angular-UI Bootstrap instead of bootstrap.js -->
+        <!-- See https://github.com/patternfly/angular-patternfly for more information -->
+        <script src="npm/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="npm/angular-animate/angular-animate.min.js"></script>
+        <script src="npm/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+        <script src="npm/angular-patternfly/dist/angular-patternfly.min.js"></script>
+        <script>
+            /* global angular, patternfly */
+            angular.module('myApp', ['patternfly.charts', 'patternfly.form']);
+
+            angular.module('patternfly.charts').controller('ChartCtrl', function ($scope) {
+                $scope.used = 950;
+                $scope.total = 1000;
+                $scope.available = $scope.total - $scope.used;
+
+                $scope.chartConfig = patternfly.c3ChartDefaults().getDefaultDonutConfig('MHz Used');
+                $scope.chartConfig.data = {
+                    type: "donut",
+                    columns: [
+                        ["Used", $scope.used],
+                        ["Available", $scope.total - $scope.used]
+                    ],
+                    groups: [
+                        ["used", "available"]
+                    ],
+                    order: null
+                };
+
+                $scope.getChart = function (chart) {
+                    $scope.chart = chart;
+                };
+
+                $scope.focusUsed = function () {
+                    $scope.chart.focus("Used");
+                };
+
+                $scope.updateAvailable = function (val) {
+                    $scope.available = $scope.total - $scope.used;
+                };
+
+                $scope.submitform = function (val) {
+                    console.log("submitform");
+                    $scope.used = val;
+                    $scope.updateAvailable();
+                    $scope.chartConfig.data.columns = [["Used", $scope.used], ["Available", $scope.available]];
+                };
+            });
+
+
+            angular.module('patternfly.charts').controller('ChartDonutCtrl', function ($scope, $interval) {
+                $scope.config = {
+                    'chartId': 'chartOne',
+                    'legend': {"show": true},
+                    'colors': {
+                        'Cats': '#0088ce', // blue
+                        'Hamsters': '#3f9c35', // green
+                        'Fish': '#ec7a08', // orange
+                        'Dogs': '#cc0000'      // red
+                    },
+                    donut: {
+                        title: "Animals"
+                    },
+                    'onClickFn': function (d, i) {
+                        alert("You clicked on donut arc: " + d.id);
+                    }
+                };
+
+                $scope.custConfig = angular.copy($scope.config);
+                $scope.custConfig.chartId = 'chartTwo';
+                $scope.custConfig.legend.position = 'right';
+                $scope.custConfig.centerLabelFn = function () {
+                    return "Pets";
+                };
+                $scope.chartHeight = 120;
+
+                $scope.data = [
+                    ['Cats', 2],
+                    ['Hamsters', 1],
+                    ['Fish', 3],
+                    ['Dogs', 2]
+                ];
+
+
+            });
+
+
+            angular.module('patternfly.form').controller('FormButtonCtrl', function ($scope, $timeout, $element) {
+                $scope.status = 'Not yet Saved';
+                $scope.working = false;
+
+                $scope.save = function (item) {
+                    $scope.status = 'saved';
+                    $scope.working = true;
+
+                    $timeout(function () {
+                        $scope.working = false;
+                    }, 1000);
+                };
+
+                $scope.cancel = function () {
+                    $scope.status = 'cancelled';
+                    $scope.input = null;
+                };
+            });
+
+
+
+
+        </script>
+    </head>
+    <body>
+        <div ng-controller="ChartCtrl">
+            <pf-c3-chart id="chartId" config="chartConfig" get-chart-callback="getChart"></pf-c3-chart>
+
+            <form role="form" style="width:300px">
+                Total = {{total}}, Used = {{used}}, Available = {{available}}
+                <div class="form-group">
+                    <label>Used</label>
+                    <input type="text" class="form-control" ng-model="newUsed">
+                </div>
+                <input type="button" ng-click="submitform(newUsed)" value="Set Used" />
+                <input type="button" ng-click="focusUsed()" value="Focus Used" />
+            </form>
+        </div>
+
+        <div ng-controller="ChartDonutCtrl">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-6 text-center">
+                        <label>Donut Chart</label>
+                    </div>
+                    <div class="col-md-6 text-center">
+                        <label>Small Donut Chart</label>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <pf-donut-chart config="config" data="data"></pf-donut-chart>
+                </div>
+                <div class="col-md-6 text-center">
+                    <pf-donut-chart config="custConfig" data="data" chart-height="chartHeight"></pf-donut-chart>
+                </div>
+            </div>
+        </div>
+
+        <div ng-controller="FormButtonCtrl">
+            <p>Saved?</p>
+            <p>{{ status}}</p>
+            <form name="testForm">
+                <div class="form-group>
+                     <label class="control-label col-sm-2">Input</label>
+                    <input class="form-control col-sm-5" name="item" ng-model="input" type="text" required>
+                </div>
+                <pf-form-buttons pf-on-cancel="cancel()" pf-on-save="save(item)" pf-working="working"></pf-form-buttons>
+            </form>
+        </div>
+    </body>
+</html>

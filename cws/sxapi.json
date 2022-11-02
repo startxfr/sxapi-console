@@ -1,7 +1,7 @@
 {
     "name": "sxapi-console-webui",
     "description": "Web management console for managing sxapi-core API",
-    "version": "0.0.9",
+    "version": "0.3.66",
     "debug": true,
     "log": {
         "filters": {

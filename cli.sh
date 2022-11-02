@@ -1,7 +1,7 @@
 #!/bin/bash
 CWD=$(pwd)
 
-CLI_VERSION="v0.0.9"
+CLI_VERSION="v0.3.66"
 CLI_PATH=~/.sxapi-cli
 CLI_PATH_SAMPLE=$CLI_PATH/sample/samples
 

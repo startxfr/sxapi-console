@@ -1,6 +1,6 @@
 {
   "name": "sxapi-console-webui",
-  "version": "0.0.9",
+  "version": "0.3.66",
   "description": "sxapi-console-webui is a web management console for managing sxapi-core API",
   "author": "STARTX <dev+sxapi_console@startx.fr>",
   "license": "GNU GPLv3",
@@ -45,22 +45,30 @@
     "url": "https://github.com/startxfr/sxapi-console/issues"
   },
   "dependencies": {
-    "merge": "~1.2.0",
+    "angular": "~1.8.0",
+    "angular-animate": "~1.8.0",
+    "angular-drag-and-drop-lists": "~2.1.0",
+    "angular-dragdrop": "~1.0.13",
+    "angular-patternfly": "~5.0.3",
+    "angular-sanitize": "~1.8.0",
+    "angular-svg-base-fix": "~2.0.0",
+    "angular-ui-bootstrap": "~2.5.6",
+    "angularjs-datatables": "~0.5.9",
+    "body-parser": "^1.20.1",
+    "components-jqueryui": "~1.12.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "ip": "^1.1.8",
+    "merge": "~2.1.1",
+    "mustache": "^2.3.2",
     "timer-machine": "~1.1.0",
-    "ip": "~1.1.5",
-    "uuid": "~3.1.0",
-    "mustache": "~2.3.0",
-    "cors": "~2.8.4",
-    "body-parser": "~1.18.2",
-    "express": "~4.16.2",
-    "angular-patternfly": "~4.14.0",
-    "patternfly": "~3.31.2"
+    "uuid": "~3.1.0"
   },
   "devDependencies": {
-    "mocha": "~4.0.1",
     "chai": "~4.1.2",
     "chai-http": "~3.0.0",
-    "sinon": "~4.1.2"
+    "mocha": "~4.0.1",
+    "sinon": "^4.5.0"
   },
   "engines": {
     "node": ">= 8.9.1",
